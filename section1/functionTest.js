@@ -50,7 +50,20 @@ function remove_item_by_name(cart,name){
     return cart;
 }
 
-console.log(
-    remove_item_by_name(array, 'c'),
-    array
-)
+// console.log(
+//     remove_item_by_name(array, 'c'),
+//     array
+// )
+let a = [1, 2, 3, 4];
+
+function pop(array){
+    let array_copy = array.slice();
+    let first = array_copy.pop();
+    return {
+        first : first,
+        array : array_copy
+    }
+}
+console.log(a)
+console.log(pop(a))
+console.log(a)
