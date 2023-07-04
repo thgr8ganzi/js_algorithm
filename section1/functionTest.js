@@ -67,43 +67,80 @@ let array = [
 // console.log(a)
 // console.log(pop(a))
 // console.log(a)
+
 const arr = [1, 2, 3, 4, 1];
-
-const f1 = function (arr, good = 'good', best = 'best'){
-    let newArr = []
-    for (let i = 0; i < arr.length; i++) {
-        if(arr[i] === 1){
-            newArr.push(good);
-       }else{
-            newArr.push(best);
-       }
-    }
-    return newArr;
-}
-const f2 = function (arr, good = 'good', best = 'best'){
-    return mapFunc(arr,function (arr){
-        return check(arr, good, best)
+//
+// const f1 = function (arr, good = 'good', best = 'best'){
+//     let newArr = []
+//     for (let i = 0; i < arr.length; i++) {
+//         if(arr[i] === 1){
+//             newArr.push(good);
+//        }else{
+//             newArr.push(best);
+//        }
+//     }
+//     return newArr;
+// }
+// const f2 = function (arr, good = 'good', best = 'best'){
+//     return mapFunc(arr,function (arr){
+//         return check(arr, good, best)
+//     })
+// }
+// function mapFunc(arr,f2){
+//     let newArr = [];
+//     forFunc(arr, function (elm){
+//         newArr.push(f2(elm));
+//     })
+//     return newArr;
+// }
+// function forFunc(arr, f1){
+//     for (let i = 0; i < arr.length; i++) {
+//         f1(arr[i])
+//     }
+// }
+// function check(i, good, best){
+//     if(i === 1){
+//         return good
+//     }else{
+//         return best
+//     }
+// }
+//
+// const f2 =  (arr, good = 'good', best = 'best') => {
+//     return filterFunc(arr, function (value){
+//         return value < 2 ? good : best;
+//     });
+// }
+// const filterFunc = (arr, f) => {
+//     let newArr = [];
+//     forFunc(arr, (elm) => {
+//         newArr.push(f(elm))
+//     })
+//     return newArr;
+// }
+// const forFunc = (arr, f) => {
+//     for (let i = 0; i < arr.length; i++) {
+//         f(arr[i])
+//     }
+// }
+let str = ''
+const f2 = (arr, good = 'good', best = 'best') => {
+    return reduceFunc(arr, 0, (total, arr) => {
+        return total + arr
     })
 }
-function mapFunc(arr,f2){
-    let newArr = [];
-    forFunc(arr, function (elm){
-        newArr.push(f2(elm));
+const reduceFunc = (arr, init, f) => {
+    let accum = init;
+    forEachFunc(arr, (elem) => {
+        accum = f(accum, elem);
     })
-    return newArr;
+    return accum;
 }
-function forFunc(arr, f1){
+const forEachFunc = (arr, f) => {
     for (let i = 0; i < arr.length; i++) {
-        f1(arr[i])
-    }
-}
-function check(i, good, best){
-    if(i === 1){
-        return good
-    }else{
-        return best
+        f(arr[i]);
     }
 }
 
-const result = f(arr);
+const result = f2(arr);
 console.log(result)
