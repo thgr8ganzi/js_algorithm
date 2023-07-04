@@ -34,36 +34,76 @@ let array = [
 // let ar = arrayCopy(array)
 // console.log(ar)
 // console.log(array)
-
-function removeItems(array, idx, count){
-    let copy = array.slice();
-    copy.splice(idx, count)
-    return copy;
-}
-function remove_item_by_name(cart,name){
-    let idx = null;
-    for (let i = 0; i < cart.length; i++) {
-        if(cart[i].name === name) idx = i;
-    }
-    if(idx !== null)
-        return removeItems(cart, idx, 1);
-    return cart;
-}
-
+//
+// function removeItems(array, idx, count){
+//     let copy = array.slice();
+//     copy.splice(idx, count)
+//     return copy;
+// }
+// function remove_item_by_name(cart,name){
+//     let idx = null;
+//     for (let i = 0; i < cart.length; i++) {
+//         if(cart[i].name === name) idx = i;
+//     }
+//     if(idx !== null)
+//         return removeItems(cart, idx, 1);
+//     return cart;
+// }
+//
 // console.log(
 //     remove_item_by_name(array, 'c'),
 //     array
 // )
-let a = [1, 2, 3, 4];
+// let a = [1, 2, 3, 4];
+//
+// function pop(array){
+//     let array_copy = array.slice();
+//     let first = array_copy.pop();
+//     return {
+//         first : first,
+//         array : array_copy
+//     }
+// }
+// console.log(a)
+// console.log(pop(a))
+// console.log(a)
+const arr = [1, 2, 3, 4, 1];
 
-function pop(array){
-    let array_copy = array.slice();
-    let first = array_copy.pop();
-    return {
-        first : first,
-        array : array_copy
+const f1 = function (arr, good = 'good', best = 'best'){
+    let newArr = []
+    for (let i = 0; i < arr.length; i++) {
+        if(arr[i] === 1){
+            newArr.push(good);
+       }else{
+            newArr.push(best);
+       }
+    }
+    return newArr;
+}
+const f2 = function (arr, good = 'good', best = 'best'){
+    return mapFunc(arr,function (arr){
+        return check(arr, good, best)
+    })
+}
+function mapFunc(arr,f2){
+    let newArr = [];
+    forFunc(arr, function (elm){
+        newArr.push(f2(elm));
+    })
+    return newArr;
+}
+function forFunc(arr, f1){
+    for (let i = 0; i < arr.length; i++) {
+        f1(arr[i])
     }
 }
-console.log(a)
-console.log(pop(a))
-console.log(a)
+function check(i, good, best){
+    if(i === 1){
+        return good
+    }else{
+        return best
+    }
+}
+
+const result = f(arr);
+console.log(result)
