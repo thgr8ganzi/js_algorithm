@@ -75,9 +75,9 @@ const arr = [1, 2, 3, 4, 1];
 //     for (let i = 0; i < arr.length; i++) {
 //         if(arr[i] === 1){
 //             newArr.push(good);
-//        }else{
+//         }else{
 //             newArr.push(best);
-//        }
+//         }
 //     }
 //     return newArr;
 // }
@@ -123,24 +123,59 @@ const arr = [1, 2, 3, 4, 1];
 //         f(arr[i])
 //     }
 // }
-let str = ''
-const f2 = (arr, good = 'good', best = 'best') => {
-    return reduceFunc(arr, 0, (total, arr) => {
-        return total + arr
-    })
-}
-const reduceFunc = (arr, init, f) => {
-    let accum = init;
-    forEachFunc(arr, (elem) => {
-        accum = f(accum, elem);
-    })
-    return accum;
-}
-const forEachFunc = (arr, f) => {
-    for (let i = 0; i < arr.length; i++) {
-        f(arr[i]);
-    }
-}
+// const f2 = (arr, good = 'good', best = 'best') => {
+//     return reduceFunc(arr, 0, (total, arr) => {
+//         return total + arr
+//     })
+// }
+// const reduceFunc = (arr, init, f) => {
+//     let accum = init;
+//     forEachFunc(arr, (elem) => {
+//         accum = f(accum, elem);
+//     })
+//     return accum;
+// }
+// const forEachFunc = (arr, f) => {
+//     for (let i = 0; i < arr.length; i++) {
+//         f(arr[i]);
+//     }
+// }
+// const result = (arr) => {
+//     return reduce(arr, 0, (total, arr2) => {
+//         return total + arr2;
+//     });
+// }
+// const reduce = (arr, init, f) =>{
+//     let accum = init
+//     forEachFunc(arr, (elem) => {
+//         accum = f(accum, elem);
+//     })
+//     return accum;
+// }
+// const forEachFunc = (arr, f) => {
+//     for (let i = 0; i < arr.length; i++) {
+//         f(arr[i]);
+//     }
+// }
+// function makeAdder(n){
+//     return function(x){
+//         return n + x;
+//     };
+// }
+// // 커링
+// const n = makeAdder(1)(10);
+// console.log(n);
+//
+// const result = (arr) => {
+//     return reduce(arr, 0);
+// }
+// const reduce = (arr, init) =>{
+//     let accum = init
+//     for (let i = 0; i < arr.length; i++) {
+//         accum = accum + arr[i]
+//     }
+//     return accum;
+// }
+// const reduceFuncResult = result(arr)
+// console.log(reduceFuncResult)
 
-const result = f2(arr);
-console.log(result)
