@@ -178,3 +178,27 @@ const arr = [1, 2, 3, 4, 1];
 // }
 // const reduceFuncResult = result(arr)
 // console.log(reduceFuncResult)
+
+const todoList = [
+    {
+        'done': true,
+        'text': '오늘 할일'
+    },
+    {
+        'done': false,
+        'text': '내일 할일'
+    },
+    {
+        'done': true,
+        'text': '모레 할일'
+    }]
+
+const pipe = (...functions) => (value) => functions.reduce((acc, currentFunc) => currentFunc(acc, value), [])
+
+const filterList = (flag) => (acc, value) => value.filter(item => item.done === flag)
+
+const printList = (acc) => () => acc.map(item => item)
+
+const printDoneTrueList = pipe(filterList(true), printList)(todoList)();
+
+console.log(printDoneTrueList)
