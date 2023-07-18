@@ -1,22 +1,22 @@
-let array = [
-    {
-        name : 'a',
-        age : 10
-    },
-    {
-        name : 'b',
-        age : 20
-    },
-    {
-        name : 'c',
-        age : 30
-    },
-    {
-        name : 'd',
-        age : 40
-    },
-]
-
+// let array = [
+//     {
+//         name : 'a',
+//         age : 10
+//     },
+//     {
+//         name : 'b',
+//         age : 20
+//     },
+//     {
+//         name : 'c',
+//         age : 30
+//     },
+//     {
+//         name : 'd',
+//         age : 40
+//     },
+// ]
+//
 // function arrayCopy(arr){
 //     let copy = arr.slice();
 //     for (let i = 0; i < copy.length; i++) {
@@ -67,8 +67,8 @@ let array = [
 // console.log(a)
 // console.log(pop(a))
 // console.log(a)
-
-const arr = [1, 2, 3, 4, 1];
+//
+// const arr = [1, 2, 3, 4, 1];
 //
 // const f1 = function (arr, good = 'good', best = 'best'){
 //     let newArr = []
@@ -201,104 +201,113 @@ const arr = [1, 2, 3, 4, 1];
 // const printDoneTrueList = pipe(filterList(true), printList)(todoList)();
 //
 // console.log(printDoneTrueList)
-
-// investment 투자금
-// returnRate 수익률
-// 수익: 투자금 * 수익률
-// 배열에서 투자금이 5000 이상인 투자자들을 찾고, 나이대별로 그룹화하여 이름과 수익을 보여주세요
-const investors = [
-    { name: "John", age: 35, investment: 5000, returnRate: 0.15 },
-    { name: "Alice", age: 42, investment: 8000, returnRate: 0.12 },
-    { name: "Bob", age: 28, investment: 3000, returnRate: 0.18 },
-    { name: "Carol", age: 55, investment: 10000, returnRate: 0.13 },
-    { name: "David", age: 47, investment: 6000, returnRate: 0.11 },
-    { name: "Eve", age: 31, investment: 7000, returnRate: 0.16 },
-    { name: "Frank", age: 39, investment: 9000, returnRate: 0.19 },
-    { name: "Grace", age: 44, investment: 12000, returnRate: 0.14 },
-    { name: "Henry", age: 52, investment: 1000, returnRate: 0.17 },
-    { name: "Ivy", age: 36, investment: 4000, returnRate: 0.10 },
-    { name: "Jane", age: 28, investment: 2000, returnRate: 0.15 },
-    { name: "Kate", age: 29, investment: 3000, returnRate: 0.12 },
-    { name: "Luke", age: 26, investment: 4000, returnRate: 0.18 },
-    { name: "Mark", age: 27, investment: 2500, returnRate: 0.13 },
-    { name: "Nancy", age: 25, investment: 1500, returnRate: 0.11 }
-];
-
-// 나이대 별 그룹화 함수
-function getAgeRange(age) {
-    if (age >= 20 && age < 30) {
-        return "20s";
-    } else if (age >= 30 && age < 40) {
-        return "30s";
-    } else if (age >= 40 && age < 50) {
-        return "40s";
-    } else if (age >= 50 && age < 60) {
-        return "50s";
-    } else {
-        return "Unknown";
-    }
-}
-console.log(
-    investors.filter((investor) => investor.investment >= 5000)
-        .map((investor) => ({...investor, profit : Math.floor(investor.investment * investor.returnRate)}))
-        .reduce((acc, cur, idx) => ({
-            ...acc,
-            [getAgeRange(cur.age)]: [
-                    ...(acc[getAgeRange(cur.age)] ?? []),
-                {
-                    ...cur
-                }
-                ],
-        }), {})
-)
-// orders : 주문 배열
-// products: 상품 배열
-// productId: 상품 번호
-// price: 상품 금액
-// 주문 금액: quantity * price
-// 19500
-// hint: find() 함수
-products.find(product => product.id === order.productId)
-
-const orders = [
-    { id: 1, productId: 1, quantity: 2 },
-    { id: 2, productId: 2, quantity: 1 },
-    { id: 3, productId: 3, quantity: 5 },
-    { id: 4, productId: 2, quantity: 3 },
-    { id: 5, productId: 1, quantity: 4 },
-    { id: 6, productId: 3, quantity: 2 },
-    { id: 7, productId: 4, quantity: 1 },
-    { id: 8, productId: 2, quantity: 2 },
-    { id: 9, productId: 3, quantity: 3 },
-    { id: 10, productId: 1, quantity: 1 }
-];
-
-const products = [
-    { id: 1, name: 'Apple', price: 1000 },
-    { id: 2, name: 'Banana', price: 500 },
-    { id: 3, name: 'Orange', price: 800 },
-    { id: 4, name: 'Grapes', price: 1500 }
-];
-console.log(
-    orders.reduce((acc, cur) => {
-        acc += cur.quantity * products.find(product => product.id === cur.productId).price
-        return acc
-    },0)
-)
-
-var flattened1 = [[0, 1], [2, 3], [4, 5]].reduce((acc, cur) => {
-    acc = acc ?? [];
-    acc.push(...cur)
-    return acc
-},[])
-var flattened2 = [[0, 1], [2, 3], [4, 5]].reduce(
-    (accumulator, currentValue) => accumulator.concat(currentValue),
-    []
-);
-let arrs = [1, 2, 1, 2, 3, 5, 4, 5, 3, 4, 4, 4, 4, 6, 6];
-let result = arrs.sort().reduce((acc, cur, idx) => {
-    acc = acc ?? []
-    idx === 0 ? acc.push(cur) : ''
-    acc[acc.length - 1] === cur ? '' : acc.push(cur)
-    return acc
-},[]);
+//
+// // investment 투자금
+// // returnRate 수익률
+// // 수익: 투자금 * 수익률
+// // 배열에서 투자금이 5000 이상인 투자자들을 찾고, 나이대별로 그룹화하여 이름과 수익을 보여주세요
+// const investors = [
+//     { name: "John", age: 35, investment: 5000, returnRate: 0.15 },
+//     { name: "Alice", age: 42, investment: 8000, returnRate: 0.12 },
+//     { name: "Bob", age: 28, investment: 3000, returnRate: 0.18 },
+//     { name: "Carol", age: 55, investment: 10000, returnRate: 0.13 },
+//     { name: "David", age: 47, investment: 6000, returnRate: 0.11 },
+//     { name: "Eve", age: 31, investment: 7000, returnRate: 0.16 },
+//     { name: "Frank", age: 39, investment: 9000, returnRate: 0.19 },
+//     { name: "Grace", age: 44, investment: 12000, returnRate: 0.14 },
+//     { name: "Henry", age: 52, investment: 1000, returnRate: 0.17 },
+//     { name: "Ivy", age: 36, investment: 4000, returnRate: 0.10 },
+//     { name: "Jane", age: 28, investment: 2000, returnRate: 0.15 },
+//     { name: "Kate", age: 29, investment: 3000, returnRate: 0.12 },
+//     { name: "Luke", age: 26, investment: 4000, returnRate: 0.18 },
+//     { name: "Mark", age: 27, investment: 2500, returnRate: 0.13 },
+//     { name: "Nancy", age: 25, investment: 1500, returnRate: 0.11 }
+// ];
+//
+// // 나이대 별 그룹화 함수
+// function getAgeRange(age) {
+//     if (age >= 20 && age < 30) {
+//         return "20s";
+//     } else if (age >= 30 && age < 40) {
+//         return "30s";
+//     } else if (age >= 40 && age < 50) {
+//         return "40s";
+//     } else if (age >= 50 && age < 60) {
+//         return "50s";
+//     } else {
+//         return "Unknown";
+//     }
+// }
+// console.log(
+//     investors.filter((investor) => investor.investment >= 5000)
+//         .map((investor) => ({...investor, profit : Math.floor(investor.investment * investor.returnRate)}))
+//         .reduce((acc, cur, idx) => ({
+//             ...acc,
+//             [getAgeRange(cur.age)]: [
+//                     ...(acc[getAgeRange(cur.age)] ?? []),
+//                 {
+//                     ...cur
+//                 }
+//                 ],
+//         }), {})
+// )
+// // orders : 주문 배열
+// // products: 상품 배열
+// // productId: 상품 번호
+// // price: 상품 금액
+// // 주문 금액: quantity * price
+// // 19500
+// // hint: find() 함수
+// products.find(product => product.id === order.productId)
+//
+// const orders = [
+//     { id: 1, productId: 1, quantity: 2 },
+//     { id: 2, productId: 2, quantity: 1 },
+//     { id: 3, productId: 3, quantity: 5 },
+//     { id: 4, productId: 2, quantity: 3 },
+//     { id: 5, productId: 1, quantity: 4 },
+//     { id: 6, productId: 3, quantity: 2 },
+//     { id: 7, productId: 4, quantity: 1 },
+//     { id: 8, productId: 2, quantity: 2 },
+//     { id: 9, productId: 3, quantity: 3 },
+//     { id: 10, productId: 1, quantity: 1 }
+// ];
+//
+// const products = [
+//     { id: 1, name: 'Apple', price: 1000 },
+//     { id: 2, name: 'Banana', price: 500 },
+//     { id: 3, name: 'Orange', price: 800 },
+//     { id: 4, name: 'Grapes', price: 1500 }
+// ];
+// console.log(
+//     orders.reduce((acc, cur) => {
+//         acc += cur.quantity * products.find(product => product.id === cur.productId).price
+//         return acc
+//     },0)
+// )
+//
+// var flattened1 = [[0, 1], [2, 3], [4, 5]].reduce((acc, cur) => {
+//     acc = acc ?? [];
+//     acc.push(...cur)
+//     return acc
+// },[])
+// var flattened2 = [[0, 1], [2, 3], [4, 5]].reduce(
+//     (accumulator, currentValue) => accumulator.concat(currentValue),
+//     []
+// );
+// let arrs = [1, 2, 1, 2, 3, 5, 4, 5, 3, 4, 4, 4, 4, 6, 6];
+// let result = arrs.sort().reduce((acc, cur, idx) => {
+//     acc = acc ?? []
+//     idx === 0 ? acc.push(cur) : ''
+//     acc[acc.length - 1] === cur ? '' : acc.push(cur)
+//     return acc
+// },[]);
+const title = 'Learning Function Composition 1'
+const strToArr = str => str.split(' ')
+const toLower = arr => arr.map(it => it.toLowerCase())
+const joinArrToStr = arr => arr.join('-')
+const pipe = (...functions) => str => functions.reduce((acc, fn) => fn(acc), str)
+const slug = pipe(strToArr, toLower, joinArrToStr)(title)
+console.log(slug)
+// const res = title.split(' ').map(it => it.toLowerCase()).reduce((acc, cur) => acc += '-' + cur)
+// console.log(res)
